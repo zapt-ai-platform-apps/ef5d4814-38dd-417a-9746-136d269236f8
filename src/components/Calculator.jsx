@@ -12,32 +12,8 @@ function Calculator() {
 
   const calculateResult = () => {
     try {
-      const englishInput = input()
-        .replace(/٠/g, '0')
-        .replace(/١/g, '1')
-        .replace(/٢/g, '2')
-        .replace(/٣/g, '3')
-        .replace(/٤/g, '4')
-        .replace(/٥/g, '5')
-        .replace(/٦/g, '6')
-        .replace(/٧/g, '7')
-        .replace(/٨/g, '8')
-        .replace(/٩/g, '9');
-
-      const evalResult = eval(englishInput);
-      const arabicResult = evalResult
-        .toString()
-        .replace(/0/g, '٠')
-        .replace(/1/g, '١')
-        .replace(/2/g, '٢')
-        .replace(/3/g, '٣')
-        .replace(/4/g, '٤')
-        .replace(/5/g, '٥')
-        .replace(/6/g, '٦')
-        .replace(/7/g, '٧')
-        .replace(/8/g, '٨')
-        .replace(/9/g, '٩');
-      setResult(arabicResult);
+      const evalResult = eval(input());
+      setResult(evalResult.toString());
     } catch (error) {
       setResult('خطأ');
     }
@@ -49,26 +25,26 @@ function Calculator() {
   };
 
   const buttons = [
-    { label: '٧', value: '٧' },
-    { label: '٨', value: '٨' },
-    { label: '٩', value: '٩' },
+    { label: '7', value: '7' },
+    { label: '8', value: '8' },
+    { label: '9', value: '9' },
     { label: '÷', value: '/' },
-    { label: '٤', value: '٤' },
-    { label: '٥', value: '٥' },
-    { label: '٦', value: '٦' },
+    { label: '4', value: '4' },
+    { label: '5', value: '5' },
+    { label: '6', value: '6' },
     { label: '×', value: '*' },
-    { label: '١', value: '١' },
-    { label: '٢', value: '٢' },
-    { label: '٣', value: '٣' },
+    { label: '1', value: '1' },
+    { label: '2', value: '2' },
+    { label: '3', value: '3' },
     { label: '-', value: '-' },
-    { label: '٠', value: '٠' },
+    { label: '0', value: '0' },
     { label: '.', value: '.' },
     { label: '=', action: 'calculate' },
     { label: '+', value: '+' },
   ];
 
   return (
-    <div class="bg-white rounded-lg shadow-lg w-full max-w-sm">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-md">
       <Display input={input} result={result} />
       <div class="grid grid-cols-4 gap-2 p-4">
         <button
