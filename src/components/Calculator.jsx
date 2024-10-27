@@ -1,4 +1,4 @@
-import { createSignal, For } from 'solid-js';
+import { createSignal, For, onMount } from 'solid-js';
 import Button from './Button';
 import Display from './Display';
 
@@ -12,6 +12,7 @@ function Calculator() {
 
   const calculateResult = () => {
     try {
+      // eslint-disable-next-line no-eval
       const evalResult = eval(input());
       setResult(evalResult.toString());
     } catch (error) {
@@ -23,6 +24,24 @@ function Calculator() {
     setInput('');
     setResult('');
   };
+
+  const handleKeyDown = (e) => {
+    const key = e.key;
+    if (/[0-9+\-*/.]/.test(key)) {
+      e.preventDefault();
+      handleButtonClick(key);
+    } else if (key === 'Enter') {
+      e.preventDefault();
+      calculateResult();
+    } else if (key === 'Escape' || key === 'Delete' || key === 'Backspace') {
+      e.preventDefault();
+      clearInput();
+    }
+  };
+
+  onMount(() => {
+    window.addEventListener('keydown', handleKeyDown);
+  });
 
   const buttons = [
     { label: '7', value: '7' },
@@ -48,14 +67,14 @@ function Calculator() {
       <Display input={input} result={result} />
       <div class="grid grid-cols-4 gap-2 p-4">
         <button
-          class="col-span-2 bg-red-500 text-white py-2 rounded cursor-pointer"
+          class="col-span-2 bg-red-500 text-white py-2 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500"
           onClick={clearInput}
           aria-label="مسح"
         >
           مسح
         </button>
         <For each={buttons}>
-          {(button) => (
+          {(button, index) => (
             <Button
               onClick={() => {
                 if (button.action === 'calculate') {
@@ -65,6 +84,7 @@ function Calculator() {
                 }
               }}
               ariaLabel={button.ariaLabel || button.label}
+              tabIndex={0}
             >
               {button.label}
             </Button>
