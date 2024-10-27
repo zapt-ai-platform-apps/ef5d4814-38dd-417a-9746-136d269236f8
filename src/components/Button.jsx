@@ -5,7 +5,7 @@ function Button(props) {
 
   return (
     <button
-      class="bg-gray-200 text-black py-2 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+      class="bg-gray-200 text-black py-2 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
       onClick={local.onClick}
       aria-label={local.ariaLabel}
       tabIndex={local.tabIndex}

@@ -1,11 +1,31 @@
 function Display(props) {
   return (
     <div class="p-4 text-right">
-      <div class="text-gray-500 text-xl mb-2" aria-live="polite" role="textbox">
-        {props.input()}
+      <div>
+        <label class="block text-gray-700 text-lg mb-1" for="input-display">
+          الإدخال
+        </label>
+        <div
+          id="input-display"
+          class="text-gray-500 text-xl mb-2"
+          aria-live="polite"
+          role="textbox"
+        >
+          {props.input()}
+        </div>
       </div>
-      <div class="text-black text-2xl font-bold" aria-live="polite" role="textbox">
-        {props.result()}
+      <div>
+        <label class="block text-gray-700 text-lg mb-1" for="result-display">
+          النتيجة
+        </label>
+        <div
+          id="result-display"
+          class="text-black text-2xl font-bold"
+          aria-live="polite"
+          role="textbox"
+        >
+          {props.result()}
+        </div>
       </div>
     </div>
   );
