@@ -28,19 +28,19 @@ function Calculator() {
     { label: '7', value: '7' },
     { label: '8', value: '8' },
     { label: '9', value: '9' },
-    { label: '÷', value: '/' },
+    { label: '÷', value: '/', ariaLabel: 'قسمة' },
     { label: '4', value: '4' },
     { label: '5', value: '5' },
     { label: '6', value: '6' },
-    { label: '×', value: '*' },
+    { label: '×', value: '*', ariaLabel: 'ضرب' },
     { label: '1', value: '1' },
     { label: '2', value: '2' },
     { label: '3', value: '3' },
-    { label: '-', value: '-' },
+    { label: '-', value: '-', ariaLabel: 'طرح' },
     { label: '0', value: '0' },
-    { label: '.', value: '.' },
-    { label: '=', action: 'calculate' },
-    { label: '+', value: '+' },
+    { label: '.', value: '.', ariaLabel: 'نقطة عشرية' },
+    { label: '=', action: 'calculate', ariaLabel: 'يساوي' },
+    { label: '+', value: '+', ariaLabel: 'جمع' },
   ];
 
   return (
@@ -50,6 +50,7 @@ function Calculator() {
         <button
           class="col-span-2 bg-red-500 text-white py-2 rounded cursor-pointer"
           onClick={clearInput}
+          aria-label="مسح"
         >
           مسح
         </button>
@@ -63,7 +64,7 @@ function Calculator() {
                   handleButtonClick(button.value);
                 }
               }}
-              ariaLabel={button.label}
+              ariaLabel={button.ariaLabel || button.label}
             >
               {button.label}
             </Button>
