@@ -1,4 +1,4 @@
-import { createSignal } from 'solid-js';
+import { createSignal, For } from 'solid-js';
 import Button from './Button';
 import Display from './Display';
 
@@ -68,8 +68,8 @@ function Calculator() {
   ];
 
   return (
-    <div class="bg-white rounded-lg shadow-lg w-80">
-      <Display input={input()} result={result()} />
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-sm">
+      <Display input={input} result={result} />
       <div class="grid grid-cols-4 gap-2 p-4">
         <button
           class="col-span-2 bg-red-500 text-white py-2 rounded cursor-pointer"
