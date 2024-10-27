@@ -44,26 +44,26 @@ function Calculator() {
   });
 
   const buttons = [
-    { label: '7', value: '7', ariaLabel: 'سبعة' },
-    { label: '8', value: '8', ariaLabel: 'ثمانية' },
-    { label: '9', value: '9', ariaLabel: 'تسعة' },
     { label: '÷', value: '/', ariaLabel: 'قسمة' },
-    { label: '4', value: '4', ariaLabel: 'أربعة' },
-    { label: '5', value: '5', ariaLabel: 'خمسة' },
-    { label: '6', value: '6', ariaLabel: 'ستة' },
+    { label: '9', value: '9', ariaLabel: 'تسعة' },
+    { label: '8', value: '8', ariaLabel: 'ثمانية' },
+    { label: '7', value: '7', ariaLabel: 'سبعة' },
     { label: '×', value: '*', ariaLabel: 'ضرب' },
-    { label: '1', value: '1', ariaLabel: 'واحد' },
-    { label: '2', value: '2', ariaLabel: 'اثنان' },
-    { label: '3', value: '3', ariaLabel: 'ثلاثة' },
+    { label: '6', value: '6', ariaLabel: 'ستة' },
+    { label: '5', value: '5', ariaLabel: 'خمسة' },
+    { label: '4', value: '4', ariaLabel: 'أربعة' },
     { label: '-', value: '-', ariaLabel: 'طرح' },
-    { label: '0', value: '0', ariaLabel: 'صفر' },
-    { label: '.', value: '.', ariaLabel: 'نقطة عشرية' },
-    { label: '=', action: 'calculate', ariaLabel: 'يساوي' },
+    { label: '3', value: '3', ariaLabel: 'ثلاثة' },
+    { label: '2', value: '2', ariaLabel: 'اثنان' },
+    { label: '1', value: '1', ariaLabel: 'واحد' },
     { label: '+', value: '+', ariaLabel: 'جمع' },
+    { label: '=', action: 'calculate', ariaLabel: 'يساوي' },
+    { label: '.', value: '.', ariaLabel: 'نقطة عشرية' },
+    { label: '0', value: '0', ariaLabel: 'صفر' },
   ];
 
   return (
-    <div class="bg-white rounded-lg shadow-lg w-full max-w-md">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-md" dir="ltr">
       <Display input={input} result={result} />
       <div class="grid grid-cols-4 gap-2 p-4">
         <button
